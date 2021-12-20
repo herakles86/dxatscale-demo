@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>AccountNumber__c</fullName>
-    <description>A 255 length account number</description>
+    <description>Account number</description>
     <externalId>false</externalId>
     <inlineHelpText>The account number</inlineHelpText>
     <label>Account Number</label>
-    <length>255</length>
+    <length>50</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <type>Text</type>
