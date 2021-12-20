@@ -1,0 +1,58 @@
+{
+    "orgs": [
+        {
+            "name": "st",
+            "releases": [
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 1,
+                    "hashId": "6a3fbf10aad95c34d5d9646676d5042c90d15731"
+                }
+            ],
+            "latestRelease": {
+                "names": [
+                    "Release-1.0"
+                ],
+                "buildNumber": 1,
+                "hashId": "6a3fbf10aad95c34d5d9646676d5042c90d15731"
+            },
+            "retryCount": 0
+        }
+    ],
+    "releases": [
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 1,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "core",
+                    "to": "7aba6d09",
+                    "version": "1.0.0.1600529956",
+                    "latestCommitId": "7aba6d09",
+                    "commits": [
+                        {
+                            "commitId": "7aba6d09",
+                            "date": "2021-12-20T15:55:44+11:00",
+                            "author": "Anping Wang",
+                            "message": "update the Account.AccountNumber__c description",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "6187054b",
+                            "date": "2021-12-20T12:19:43+11:00",
+                            "author": "Anping Wang",
+                            "message": "Initial commit",
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "hashId": "6a3fbf10aad95c34d5d9646676d5042c90d15731"
+        }
+    ]
+}
