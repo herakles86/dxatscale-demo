@@ -9,14 +9,21 @@
                     ],
                     "buildNumber": 1,
                     "hashId": "6a3fbf10aad95c34d5d9646676d5042c90d15731"
+                },
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 2,
+                    "hashId": "a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef"
                 }
             ],
             "latestRelease": {
                 "names": [
                     "Release-1.0"
                 ],
-                "buildNumber": 1,
-                "hashId": "6a3fbf10aad95c34d5d9646676d5042c90d15731"
+                "buildNumber": 2,
+                "hashId": "a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef"
             },
             "retryCount": 0
         },
@@ -73,6 +80,39 @@
                 }
             ],
             "hashId": "6a3fbf10aad95c34d5d9646676d5042c90d15731"
+        },
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 2,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "core",
+                    "from": "7aba6d09",
+                    "to": "d90543a0",
+                    "version": "1.0.0.1600887704",
+                    "latestCommitId": "d90543a0",
+                    "commits": [
+                        {
+                            "commitId": "d90543a0",
+                            "date": "2021-12-20T18:11:21+11:00",
+                            "author": "Anping Wang",
+                            "message": "shorten the account number to 25 chars",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "d7bbeb35",
+                            "date": "2021-12-20T17:49:23+11:00",
+                            "author": "Anping Wang",
+                            "message": "shorten the account number to 50 chars",
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "hashId": "a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef"
         }
     ]
 }
