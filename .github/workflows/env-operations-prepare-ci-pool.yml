@@ -2,7 +2,7 @@
 #----------------------------------------------------------------------------------------------------
 # Maintained by @aly76 for DX@Scale
 # Follows reference pipeline available at docs.dxatscale.io
-# 
+#
 #-----------------------------------------------------------------------------------------------------
 # To know more about dxatscale, visit https://docs.dxatscale.io
 # To know more on sfpowerscripts, visit- https://sfpowerscripts.dxatscale.io/
@@ -20,7 +20,7 @@ on:
       gitRef:
         description: "Commit Id from where the pools should be created"
         required: false
-        default: 'main'
+        default: 'master'
   schedule:
     - cron: '0 14 * * *'
 
@@ -47,11 +47,11 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2
-        with: 
+        with:
          ref: ${{ github.event.inputs.gitRef }}
          fetch-depth: 0
 
-   
+
       - name: 'Authenticate Dev Hub'
         run: |
           echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
@@ -67,7 +67,7 @@ jobs:
 
       - name: 'Prepare a pool of scratch orgs'
         run: 'sfdx sfpowerscripts:orchestrator:prepare -f config/project-ci-pool-def.json -v devhub'
-        
+
       # Publish artifacts
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}

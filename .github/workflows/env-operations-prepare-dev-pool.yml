@@ -2,7 +2,7 @@
 #----------------------------------------------------------------------------------------------------
 # Maintained by @aly76 for DX@Scale
 # Follows reference pipeline available at docs.dxatscale.io
-# 
+#
 #-----------------------------------------------------------------------------------------------------
 # To know more about dxatscale, visit https://docs.dxatscale.io
 # To know more on sfpowerscripts, visit- https://sfpowerscripts.dxatscale.io/
@@ -18,7 +18,7 @@ on:
       gitRef:
         description: "Commit Id from where the pools should be created"
         required: false
-        default: 'main'
+        default: 'master'
   schedule:
     - cron: '0 14 * * *'
 
@@ -62,7 +62,7 @@ jobs:
 
       - name: 'Prepare a pool of scratch orgs'
         run: 'sfdx sfpowerscripts:orchestrator:prepare -f config/project-dev-pool-def.json -v devhub'
-        
+
               # Publish artifacts
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
