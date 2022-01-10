@@ -8,7 +8,6 @@
 # To know more on sfpowerscripts, visit- https://sfpowerscripts.dxatscale.io/
 # To know more on sfpowerkit, visit- https://github.com/Accenture/sfpowerkit
 
-
 # This pipeline is used to validate an incoming change using a dev environment fetched from the CI pool
 
 name: 'DOH - PR Validation - Auto Triggered'
@@ -21,7 +20,6 @@ on:
       - publish
       - dev
 
-
   workflow_dispatch:
 
 #Set the environment variables for tracking metrics
@@ -31,8 +29,6 @@ on:
   #SFPOWERSCRIPTS_DATADOG: 'true'
   #SFPOWERSCRIPTS_DATADOG_HOST: '${{ secrets.DATADOG_HOST }}'
   #SFPOWERSCRIPTS_DATADOG_API_KEY: '${{ secrets.DATADOG_API_KEY }}'
-
-
 
 jobs:
   validate:
