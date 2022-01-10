@@ -51,7 +51,7 @@ jobs:
 
       # Validate source and trigger test
       - name: 'Push source to scratch org'
-        run: 'sfdx sfpowerscripts:orchestrator:validate -p ci -v devhub -x'
+        run: 'sfdx sfpowerscripts:orchestrator:validate -p ci -v devhub'
 
   static:
     name: 'static-analysis-of-Apex-classes-using-PMD'
