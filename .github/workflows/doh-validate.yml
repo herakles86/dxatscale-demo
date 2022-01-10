@@ -11,7 +11,7 @@
 
 # This pipeline is used to validate an incoming change using a dev environment fetched from the CI pool
 
-name: 'PR Validation - Auto Triggered'
+name: 'DOH - PR Validation - Auto Triggered'
 
 on:
   pull_request:
