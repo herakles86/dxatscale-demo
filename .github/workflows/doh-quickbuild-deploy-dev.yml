@@ -37,7 +37,7 @@ jobs:
     name: 'Quickbuild packages'
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/dev'
     steps:
       - uses: actions/checkout@v2
         with:
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
     needs: quickbuild
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/dev'
     environment:
       name: DEV
     concurrency: dev
