@@ -5,7 +5,7 @@
     <externalId>false</externalId>
     <inlineHelpText>The account short description</inlineHelpText>
     <label>Account Short Description</label>
-    <length>255</length>
+    <length>200</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <type>Text</type>
