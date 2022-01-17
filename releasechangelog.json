@@ -16,14 +16,21 @@
                     ],
                     "buildNumber": 2,
                     "hashId": "a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef"
+                },
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 4,
+                    "hashId": "4401ad9b02b8fb28a28c7893dfb17fa29b7e217c"
                 }
             ],
             "latestRelease": {
                 "names": [
                     "Release-1.0"
                 ],
-                "buildNumber": 2,
-                "hashId": "a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef"
+                "buildNumber": 4,
+                "hashId": "4401ad9b02b8fb28a28c7893dfb17fa29b7e217c"
             },
             "retryCount": 0
         },
@@ -186,6 +193,53 @@
                 }
             ],
             "hashId": "aa65d11c01d7be366a5b5a480bfa8293ab70a103"
+        },
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 4,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "core",
+                    "from": "9f9ead92",
+                    "to": "7a29a80f",
+                    "version": "1.0.0.1706487815",
+                    "latestCommitId": "fe75a572",
+                    "commits": [
+                        {
+                            "commitId": "fe75a572",
+                            "date": "2022-01-17T16:46:31+11:00",
+                            "author": "Anping Wang",
+                            "message": "change account number size 155",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "fad20993",
+                            "date": "2022-01-17T14:54:51+11:00",
+                            "author": "Anping Wang",
+                            "message": "update account number size to 180",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "d679bf96",
+                            "date": "2022-01-11T14:42:54+11:00",
+                            "author": "Anping Wang",
+                            "message": "update the length of account short description to 200",
+                            "body": ""
+                        },
+                        {
+                            "commitId": "8bb6cde1",
+                            "date": "2021-12-22T14:02:08+11:00",
+                            "author": "Anping Wang",
+                            "message": "add Account.AccountShortDescription__c field",
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "hashId": "4401ad9b02b8fb28a28c7893dfb17fa29b7e217c"
         }
     ]
 }

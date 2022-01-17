@@ -1,4 +1,22 @@
-[![st-Release-1.0-2(0)-green](https://img.shields.io/static/v1?label=st&message=Release-1.0-2(0)&color=green)](#a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef) [![sit-Release-1.0-2(0)-green](https://img.shields.io/static/v1?label=sit&message=Release-1.0-2(0)&color=green)](#a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef) [![uat-Release-1.0-3(2)-green](https://img.shields.io/static/v1?label=uat&message=Release-1.0-3(2)&color=green)](#aa65d11c01d7be366a5b5a480bfa8293ab70a103) [![prod-Release-1.0-3(2)-green](https://img.shields.io/static/v1?label=prod&message=Release-1.0-3(2)&color=green)](#aa65d11c01d7be366a5b5a480bfa8293ab70a103) 
+[![st-Release-1.0-4(0)-green](https://img.shields.io/static/v1?label=st&message=Release-1.0-4(0)&color=green)](#4401ad9b02b8fb28a28c7893dfb17fa29b7e217c) [![sit-Release-1.0-2(0)-green](https://img.shields.io/static/v1?label=sit&message=Release-1.0-2(0)&color=green)](#a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef) [![uat-Release-1.0-3(2)-green](https://img.shields.io/static/v1?label=uat&message=Release-1.0-3(2)&color=green)](#aa65d11c01d7be366a5b5a480bfa8293ab70a103) [![prod-Release-1.0-3(2)-green](https://img.shields.io/static/v1?label=prod&message=Release-1.0-3(2)&color=green)](#aa65d11c01d7be366a5b5a480bfa8293ab70a103) 
+<a id=4401ad9b02b8fb28a28c7893dfb17fa29b7e217c></a>
+# Release-1.0-4
+### Artifacts :package:
+- **core**     v1.0.0.1706487815 (7a29a80f)
+
+### Work Items :gem:
+N/A
+
+### Commits :book:
+
+#### core
+| Date       | Time     | Commit ID | Commit Message                                        |
+| ---------- | -------- | --------- | ----------------------------------------------------- |
+| 17/01/2022 | 05:46:31 | fe75a572  | change account number size 155                        |
+| 17/01/2022 | 03:54:51 | fad20993  | update account number size to 180                     |
+| 11/01/2022 | 03:42:54 | d679bf96  | update the length of account short description to 200 |
+| 22/12/2021 | 03:02:08 | 8bb6cde1  | add Account.AccountShortDescription__c field          |
+
 <a id=aa65d11c01d7be366a5b5a480bfa8293ab70a103></a>
 # Release-1.0-3
 ### Artifacts :package:
