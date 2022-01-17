@@ -12,13 +12,11 @@
 # This pipeline is used to release a set of packages into respective environments
 # Changelog will be written to changelog branch
 
-name: 'DOH - CD Pipeline - release to ST & SIT - User Triggered'
+name: 'DOH - CD Pipeline - release master branch to UAT & Prod- User Triggered'
 
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 
 #Set the environment variables for tracking metrics
 #env:

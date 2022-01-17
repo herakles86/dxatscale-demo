@@ -10,13 +10,13 @@
 
 # This pipeline quickbuilds, deploy to DEV, builds and publishes packages to artifact repository
 
-name: 'DOH - CI Pipeline - build & publish / CD Pipeline - release to ST & SIT - Auto Triggered'
+name: 'DOH - CI Pipeline - master branch - build & publish / CD Pipeline - release to ST & SIT - Auto Triggered'
 
 
 on:
   push:
     branches:
-      - artifact
+      - master
 
   workflow_dispatch:
 
@@ -33,7 +33,7 @@ jobs:
     name: 'Build and Publish'
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
-    if: github.ref == 'refs/heads/artifact'
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
         with:
@@ -70,7 +70,7 @@ jobs:
   ST:
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
-    if: github.ref == 'refs/heads/artifact'
+    if: github.ref == 'refs/heads/master'
     environment:
       name: ST
     needs: buildAndPublish
@@ -99,7 +99,7 @@ jobs:
   SIT:
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
-    if: github.ref == 'refs/heads/artifact'
+    if: github.ref == 'refs/heads/master'
     environment:
       name: SIT
     needs: ST
