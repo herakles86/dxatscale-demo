@@ -93,7 +93,7 @@ jobs:
 
       # Release to environment
       - name: 'Release to ST'
-        run: 'sfdx sfpowerscripts:orchestrator:release -u st -p ${{ github.event.inputs.pathToReleaseDef }} --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::"'
+        run: 'sfdx sfpowerscripts:orchestrator:release -u st -p release-definitions/release.yml --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::"'
 
 
   SIT:
@@ -125,7 +125,7 @@ jobs:
 
       # Release to environment
       - name: 'Release to SIT'
-        run: 'sfdx sfpowerscripts:orchestrator:release -u sit -p ${{ github.event.inputs.pathToReleaseDef }} --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::" '
+        run: 'sfdx sfpowerscripts:orchestrator:release -u sit -p release-definitions/release.yml --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::" '
 
 
 
