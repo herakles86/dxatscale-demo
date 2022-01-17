@@ -53,6 +53,26 @@
                 "hashId": "a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef"
             },
             "retryCount": 0
+        },
+        {
+            "name": "uat",
+            "releases": [
+                {
+                    "names": [
+                        "Release-1.0"
+                    ],
+                    "buildNumber": 3,
+                    "hashId": "aa65d11c01d7be366a5b5a480bfa8293ab70a103"
+                }
+            ],
+            "latestRelease": {
+                "names": [
+                    "Release-1.0"
+                ],
+                "buildNumber": 3,
+                "hashId": "aa65d11c01d7be366a5b5a480bfa8293ab70a103"
+            },
+            "retryCount": 0
         }
     ],
     "releases": [
@@ -120,6 +140,32 @@
                 }
             ],
             "hashId": "a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef"
+        },
+        {
+            "names": [
+                "Release-1.0"
+            ],
+            "buildNumber": 3,
+            "workItems": {},
+            "artifacts": [
+                {
+                    "name": "core",
+                    "from": "d90543a0",
+                    "to": "9f9ead92",
+                    "version": "1.0.0.1705497875",
+                    "latestCommitId": "ede61e2c",
+                    "commits": [
+                        {
+                            "commitId": "ede61e2c",
+                            "date": "2022-01-11T09:09:35+11:00",
+                            "author": "Anping Wang",
+                            "message": "change account number length to 255",
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "hashId": "aa65d11c01d7be366a5b5a480bfa8293ab70a103"
         }
     ]
 }

@@ -1,4 +1,19 @@
-[![st-Release-1.0-2(0)-green](https://img.shields.io/static/v1?label=st&message=Release-1.0-2(0)&color=green)](#a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef) [![sit-Release-1.0-2(0)-green](https://img.shields.io/static/v1?label=sit&message=Release-1.0-2(0)&color=green)](#a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef) 
+[![st-Release-1.0-2(0)-green](https://img.shields.io/static/v1?label=st&message=Release-1.0-2(0)&color=green)](#a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef) [![sit-Release-1.0-2(0)-green](https://img.shields.io/static/v1?label=sit&message=Release-1.0-2(0)&color=green)](#a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef) [![uat-Release-1.0-3(0)-green](https://img.shields.io/static/v1?label=uat&message=Release-1.0-3(0)&color=green)](#aa65d11c01d7be366a5b5a480bfa8293ab70a103) 
+<a id=aa65d11c01d7be366a5b5a480bfa8293ab70a103></a>
+# Release-1.0-3
+### Artifacts :package:
+- **core**     v1.0.0.1705497875 (9f9ead92)
+
+### Work Items :gem:
+N/A
+
+### Commits :book:
+
+#### core
+| Date       | Time     | Commit ID | Commit Message                      |
+| ---------- | -------- | --------- | ----------------------------------- |
+| 10/01/2022 | 22:09:35 | ede61e2c  | change account number length to 255 |
+
 <a id=a65e8d3ea5cdfc22c0eb90c2af28db586eb2ecef></a>
 # Release-1.0-2
 ### Artifacts :package:
