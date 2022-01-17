@@ -72,7 +72,7 @@
                 "buildNumber": 3,
                 "hashId": "aa65d11c01d7be366a5b5a480bfa8293ab70a103"
             },
-            "retryCount": 1
+            "retryCount": 2
         },
         {
             "name": "prod",
