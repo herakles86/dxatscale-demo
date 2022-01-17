@@ -19,6 +19,7 @@ on:
       - master
       - publish
       - dev
+      - artifact
 
   workflow_dispatch:
 

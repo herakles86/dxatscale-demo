@@ -10,13 +10,13 @@
 
 # This pipeline quickbuilds, deploy to DEV, builds and publishes packages to artifact repository
 
-name: 'DOH - CI Pipeline - build & publish - Auto Triggered'
+name: 'DOH - CI Pipeline - publish branch - quickbuild - Auto Triggered'
 
 
 on:
   push:
     branches:
-      - artifact
+      - publish
 
   workflow_dispatch:
 
@@ -29,12 +29,11 @@ on:
   #SFPOWERSCRIPTS_DATADOG_API_KEY: '${{ secrets.DATADOG_API_KEY }}'
 
 jobs:
-  buildAndPublish:
-    name: 'Build and Publish'
+  quickbuild:
+    name: 'Quickbuild packages'
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
-    concurrency: build
-    if: github.ref == 'refs/heads/artifact'
+    if: github.ref == 'refs/heads/publish'
     steps:
       - uses: actions/checkout@v2
         with:
@@ -48,24 +47,45 @@ jobs:
       - name: 'Create packages'
         id: sfpowerscripts-build
         run: |
-          sfdx sfpowerscripts:orchestrator:build -v devhub --diffcheck --branch ${GITHUB_REF#refs/heads/} --buildnumber ${GITHUB_RUN_ID}
+          sfdx sfpowerscripts:orchestrator:quickbuild -v devhub --diffcheck --buildnumber ${GITHUB_RUN_ID} --branch ${GITHUB_REF#refs/heads/}
 
       # Publish artifacts
       - uses: actions/upload-artifact@v2
         with:
-          name: build-artifacts
+          name: quickbuild-artifacts
           path: artifacts
 
-      - name: Authenticate to NPM registry
+  deploy:
+    name: 'Deploy to Dev'
+    runs-on: ubuntu-latest
+    container: dxatscale/sfpowerscripts
+    needs: quickbuild
+    if: github.ref == 'refs/heads/publish'
+    environment:
+      name: DEV
+    concurrency: dev
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v2
+        with:
+             name: quickbuild-artifacts
+             path: artifacts
+
+      - name:  'Authenticate Dev Hub'
         run: |
-           echo "@${{ github.repository_owner }}:registry=https://npm.pkg.github.com" > ~/.npmrc
-           echo  "_authToken=${AUTH_TOKEN}" >> ~/.npmrc
-        env:
-          AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
+          sfdx auth:sfdxurl:store -f authfile -a devhub
 
-
-      - name: Publish
+      - name: Authenticate to DEV sandbox
         run: |
-          sfdx sfpowerscripts:orchestrator:publish -d artifacts --npm --scope @${{ github.repository_owner }}  --gittag --pushgittag
+          echo "${{ secrets.DEV_SFDX_AUTH_URL }}" > ./dev_authfile
+          sfdx auth:sfdxurl:store -f ./dev_authfile -a dev
 
+      - name: 'Deploy to DEV'
+        run: |
+          sfdx sfpowerkit:package:dependencies:install -u dev -v devhub -w 120 -r
+          sfdx sfpowerscripts:orchestrator:deploy -u dev  --skipifalreadyinstalled -g "::group::,::endgroup::"
 
