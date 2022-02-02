@@ -93,7 +93,7 @@ jobs:
 
       # Release to environment
       - name: 'Release to ST'
-        run: 'sfdx sfpowerscripts:orchestrator:release -u st -p release-definitions/release.yml --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::"'
+        run: 'sfdx sfpowerscripts:orchestrator:release -u st -p release-definitions/release-default.yml --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::"'
 
 
   SIT:
