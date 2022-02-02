@@ -12,7 +12,7 @@
 # This pipeline creates the CI pools used during validate
 
 
-name: 'Repare CI Pools - Auto Triggered'
+name: 'Replenish CI Pools - Auto Triggered'
 
 on:
   workflow_dispatch:

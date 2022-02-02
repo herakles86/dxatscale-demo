@@ -2,25 +2,23 @@
 #----------------------------------------------------------------------------------------------------
 # Maintained by @aly76 for DX@Scale
 # Follows reference pipeline available at docs.dxatscale.io
-#
+# 
 #-----------------------------------------------------------------------------------------------------
 # To know more about dxatscale, visit https://docs.dxatscale.io
 # To know more on sfpowerscripts, visit- https://sfpowerscripts.dxatscale.io/
 # To know more on sfpowerkit, visit- https://github.com/Accenture/sfpowerkit
 
-# This pipeline creates the DEV pools
+# Return an used scratch org back to the pool for replenishment
 
-name: 'Replenish DEV Pools - Auto Triggered'
+name: 'Scratch Org Recycler - User Triggered'
 
 on:
   workflow_dispatch:
-   inputs:
-      gitRef:
-        description: "Commit Id from where the pools should be created"
-        required: false
-        default: 'master'
-  schedule:
-    - cron: '0 14 * * *'
+    inputs:
+      username:
+        description: "Username of the scratch org"
+        required: true
+
 
 
 #Set the environment variables for tracking metrics
@@ -35,17 +33,12 @@ on:
 
 jobs:
 
-  pool:
-    name: 'Replenish Dev Pool'
+  delete-scracthorg:
+    name: 'Return a used scratch org to the pool ${{ github.event.inputs.username }}'
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
-    timeout-minutes: 720 #Set to Maximum Time out
-    steps:
 
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.inputs.gitRef }}
-          fetch-depth: 0
+    steps:
 
 
       - name: 'Authenticate Dev Hub'
@@ -53,20 +46,5 @@ jobs:
           echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
           sfdx auth:sfdxurl:store -f authfile -a devhub
 
-      - name: Authenticate to NPM registry
-        run: |
-           echo  "@${{ github.repository_owner }}:registry=https://npm.pkg.github.com" > ~/.npmrc
-           echo  "_authToken=${AUTH_TOKEN}" >> ~/.npmrc
-        env:
-          AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 'Prepare a pool of scratch orgs'
-        run: 'sfdx sfpowerscripts:orchestrator:prepare -f config/project-dev-pool-def.json -v devhub'
-
-              # Publish artifacts
-      - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: scratchorg-logs-pool-ci
-          path: .sfpowerscripts/prepare_logs
-
+      - name: 'Delete scratch org ${{ github.event.inputs.username }}'
+        run: 'sfdx sfpowerscripts:pool:org:delete -u ${{ github.event.inputs.username }} -v devhub'
