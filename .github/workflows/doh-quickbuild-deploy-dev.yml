@@ -10,7 +10,7 @@
 
 # This pipeline quickbuilds, deploy to DEV, builds and publishes packages to artifact repository
 
-name: 'DOH - CI Pipeline - dev branch - quickbuild - Auto Triggered'
+name: 'CI - dev - quickbuild - Auto Triggered'
 
 
 on:

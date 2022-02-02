@@ -10,7 +10,7 @@
 
 # This pipeline is used to validate an incoming change using a dev environment fetched from the CI pool
 
-name: 'DOH - PR Validation - Auto Triggered'
+name: 'PR Validation - Auto Triggered'
 
 on:
   pull_request:
@@ -52,7 +52,7 @@ jobs:
 
       # Validate source and trigger test
       - name: 'Push source to scratch org'
-        run: 'sfdx sfpowerscripts:orchestrator:validate -p ci -v devhub'
+        run: 'sfdx sfpowerscripts:orchestrator:validate -p ci -v devhub -x'
 
   static:
     name: 'static-analysis-of-Apex-classes-using-PMD'

@@ -2,25 +2,23 @@
 #----------------------------------------------------------------------------------------------------
 # Maintained by @aly76 for DX@Scale
 # Follows reference pipeline available at docs.dxatscale.io
-#
+# 
 #-----------------------------------------------------------------------------------------------------
 # To know more about dxatscale, visit https://docs.dxatscale.io
 # To know more on sfpowerscripts, visit- https://sfpowerscripts.dxatscale.io/
 # To know more on sfpowerkit, visit- https://github.com/Accenture/sfpowerkit
 
+# This pipeline creates the DEV pools
 
-# This pipeline creates the CI pools used during validate
-
-
-name: 'Repare CI Pools - Auto Triggered'
+name: 'Replenish DEV Pools - Auto Triggered'
 
 on:
   workflow_dispatch:
-    inputs:
+   inputs:
       gitRef:
         description: "Commit Id from where the pools should be created"
         required: false
-        default: 'master'
+        default: 'main'
   schedule:
     - cron: '0 14 * * *'
 
@@ -35,21 +33,19 @@ on:
 
 
 
-
 jobs:
 
-  pool-ci-pool:
-    name: 'Replenish CI Pool'
+  pool:
+    name: 'Replenish Dev Pool'
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
     timeout-minutes: 720 #Set to Maximum Time out
-
     steps:
 
       - uses: actions/checkout@v2
         with:
-         ref: ${{ github.event.inputs.gitRef }}
-         fetch-depth: 0
+          ref: ${{ github.event.inputs.gitRef }}
+          fetch-depth: 0
 
 
       - name: 'Authenticate Dev Hub'
@@ -59,16 +55,15 @@ jobs:
 
       - name: Authenticate to NPM registry
         run: |
-           echo "@${{ github.repository_owner }}:registry=https://npm.pkg.github.com" > ~/.npmrc
+           echo  "@${{ github.repository_owner }}:registry=https://npm.pkg.github.com" > ~/.npmrc
            echo  "_authToken=${AUTH_TOKEN}" >> ~/.npmrc
         env:
           AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name: 'Prepare a pool of scratch orgs'
-        run: 'sfdx sfpowerscripts:orchestrator:prepare -f config/project-ci-pool-def.json -v devhub'
-
-      # Publish artifacts
+        run: 'sfdx sfpowerscripts:orchestrator:prepare -f config/project-dev-pool-def.json -v devhub'
+        
+              # Publish artifacts
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:

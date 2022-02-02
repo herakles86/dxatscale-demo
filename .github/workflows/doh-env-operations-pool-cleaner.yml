@@ -47,23 +47,6 @@ jobs:
       - name: 'Drop the pool'
         run: 'sfdx sfpowerscripts:pool:delete -t dev -v devhub'
 
-  clean-pool-pdev:
-    name: 'Clean Dev Pool for publish'
-    runs-on: ubuntu-latest
-    container: dxatscale/sfpowerscripts
-
-    steps:
-
-      - uses: actions/checkout@v2
-
-      - name: 'Authenticate Dev Hub'
-        run: |
-          echo "${{ secrets.DEVHUB_SFDX_AUTH_URL }}" > ./authfile
-          sfdx auth:sfdxurl:store -f authfile -a devhub
-
-      - name: 'Drop the pool'
-        run: 'sfdx sfpowerscripts:pool:delete -t pdev -v devhub'
-
   clean-pool-ci:
     name: 'Clean CI Pool'
     runs-on: ubuntu-latest

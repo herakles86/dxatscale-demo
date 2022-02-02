@@ -10,7 +10,7 @@
 
 # This pipeline quickbuilds, deploy to DEV, builds and publishes packages to artifact repository
 
-name: 'DOH - CI Pipeline - master branch - build & publish / CD Pipeline - release to ST & SIT - Auto Triggered'
+name: 'CI - master - build & publish => CD - master - release to ST & SIT - Auto Triggered'
 
 
 on:
@@ -125,7 +125,7 @@ jobs:
 
       # Release to environment
       - name: 'Release to SIT'
-        run: 'sfdx sfpowerscripts:orchestrator:release -u sit -p release-definitions/release.yml --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::" '
+        run: 'sfdx sfpowerscripts:orchestrator:release -u sit -p release-definitions/release-default.yml --npm --scope ${{ github.repository_owner }} --generatechangelog --branchname changelog -g "::group::,::endgroup::" '
 
 
 
