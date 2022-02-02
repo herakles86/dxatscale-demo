@@ -1,0 +1,10 @@
+release: "Release-1.0"
+skipIfAlreadyInstalled: true
+artifacts:
+  #src-env-specific-alias-pre: LATEST_TAG
+  core: 1.0.0-1783157904
+  #src-ui: LATEST_TAG
+  #src-access-management: LATEST_TAG
+  #src-env-specific-alias-post: LATEST_TAG
+changelog:
+  workItemFilter: "issues/[0-9]+"
