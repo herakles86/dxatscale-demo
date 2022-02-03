@@ -31,7 +31,7 @@ on:
 jobs:
 
   clean-pool-dev:
-    name: 'Clean Dev Pool for dev'
+    name: 'Clean Dev Pool'
     runs-on: ubuntu-latest
     container: dxatscale/sfpowerscripts
 
